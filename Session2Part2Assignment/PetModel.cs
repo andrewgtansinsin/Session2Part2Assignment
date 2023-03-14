@@ -1,6 +1,6 @@
 ﻿using Newtonsoft.Json;
 
-namespace DemoLearning2Part2
+namespace Session2Part2Assignment
 {
     public class PetModel
     {
@@ -41,4 +41,4 @@ namespace DemoLearning2Part2
         public string Name { get; set; }
     }
 }
-}
+

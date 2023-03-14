@@ -67,7 +67,10 @@ namespace Session2Part2Assignment
                 },
                 Status = "available"
             };
-        
+
+            #region CleanUp
+            cleanUpList.Add(newPet);
+            #endregion
 
             // Send Post Request
             var temp = GetURI(UserEndpoint);
@@ -88,14 +91,17 @@ namespace Session2Part2Assignment
             Assert.AreEqual(newPet.Name, restResponse.Data.Name, "Pet Name did not match.");
             Assert.AreEqual(newPet.Category.Id, restResponse.Data.Category.Id, "Category Id did not match.");
             Assert.AreEqual(newPet.Category.Name, restResponse.Data.Category.Name, "Category Name did not match.");
-            Assert.AreEqual(newPet.PhotoUrls, restResponse.Data.PhotoUrls, "Photo URLS did not match.");
-
+            Assert.AreEqual(newPet.PhotoUrls.Length, restResponse.Data.PhotoUrls.Length, "Photo URLS Length did not match.");
+            Assert.AreEqual(newPet.PhotoUrls[0], restResponse.Data.PhotoUrls[0], "Photo URLS did not match.");
+            Assert.AreEqual(newPet.Tags[0].Id, restResponse.Data.Tags[0].Id, "First Tags Id did not match.");
+            Assert.AreEqual(newPet.Tags[0].Name, restResponse.Data.Tags[0].Name, "First Tags Name did not match.");
+            Assert.AreEqual(newPet.Tags[1].Id, restResponse.Data.Tags[1].Id, "Second Tags Id did not match.");
+            Assert.AreEqual(newPet.Tags[1].Name, restResponse.Data.Tags[1].Name, "Second Tags Name did not match.");
+            Assert.AreEqual(newPet.Status, restResponse.Data.Status, "Status did not match.");
 
             #endregion
 
-            #region CleanUp
-            cleanUpList.Add(newPet);
-            #endregion
+
         }
     }
 }
