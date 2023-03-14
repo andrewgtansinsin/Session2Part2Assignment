@@ -7,10 +7,10 @@ using System.Net;
 using System.Threading.Tasks;
 
 [assembly: Parallelize(Workers =10, Scope = ExecutionScope.MethodLevel)]
-namespace DemoLearning2Part2
+namespace Session2Part2Assignment
 {
     [TestClass]
-    public class Session2Part2Demo
+    public class Session2Part2Assignment
     {
         private static RestClient restClient;
 
